@@ -138,11 +138,10 @@ export function SystemRail({ state }: { state: OloLinkState }) {
 
   return (
     <nav className="pointer-events-auto absolute bottom-0 left-0 top-0 z-40 flex w-[68px] flex-col items-center gap-1.5 overflow-y-auto bg-black/65 py-3 backdrop-blur-xl [scrollbar-width:none]">
-      {SYSTEM_TABS.map((item, i) => (
+      {SYSTEM_TABS.map((item) => (
         <div key={item.id} className={item.id === 'settings' ? 'mt-auto' : undefined}>
           <RailButton
             item={item}
-            index={i}
             isActive={active === item.id}
             onToggle={() => onToggle(item.id)}
           />
