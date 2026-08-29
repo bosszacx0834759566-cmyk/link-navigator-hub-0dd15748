@@ -37,7 +37,6 @@ export const SYSTEM_TABS: {
   { id: 'drone', label: 'Drone', hint: 'ข้อมูลโดรนรีเลย์ทั้งหมด', icon: Plane },
   { id: 'ground', label: 'Ground', hint: 'ข้อมูลสถานีภาคพื้นดินทั้งหมด', icon: RadioTower },
   { id: 'search', label: 'Search', hint: 'ค้นหาอุปกรณ์ทุกประเภทอย่างรวดเร็ว', icon: Search },
-  { id: 'view', label: 'View', hint: 'สลับมุมมองโลก 3D / 2D', icon: Globe2 },
   { id: 'settings', label: 'Settings', hint: 'การตั้งค่าของระบบทั้งหมด', icon: Settings2 },
 ];
 
