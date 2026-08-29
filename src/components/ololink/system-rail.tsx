@@ -107,7 +107,7 @@ function ScenarioRailButton({
       aria-label={item.label}
       aria-pressed={isActive}
       className={cn(
-        'group relative flex h-[58px] w-[58px] flex-col items-center justify-center gap-1 rounded-[12px] outline-none transition-all duration-150',
+        'group relative flex h-[46px] w-[46px] items-center justify-center rounded-[12px] outline-none transition-all duration-150',
         'focus-visible:ring-1 focus-visible:ring-sky-400/60 disabled:opacity-50',
         isActive
           ? 'bg-sky-500/[0.14] text-sky-300'
@@ -115,7 +115,6 @@ function ScenarioRailButton({
       )}
     >
       <Icon className="h-[18px] w-[18px]" strokeWidth={1.5} />
-      <span className="font-mono text-[8px] uppercase tracking-[0.16em]">{item.label}</span>
 
       <span
         className={cn(
