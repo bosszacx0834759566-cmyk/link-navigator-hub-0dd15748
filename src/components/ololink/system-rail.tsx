@@ -155,6 +155,33 @@ export function SystemRail({ state }: { state: OloLinkState }) {
         </div>
       ))}
 
+      {/* earth view mode */}
+      <div className="mt-2 flex flex-col items-center gap-1 border-t border-white/[0.06] pt-2">
+        <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-muted-foreground/50">
+          View
+        </span>
+        <div className="flex flex-col items-center gap-1">
+          {(['3d', '2d'] as const).map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => state.setView(m)}
+              aria-pressed={state.view === m}
+              aria-label={`${m.toUpperCase()} view`}
+              className={cn(
+                'flex h-8 w-[46px] items-center justify-center rounded-[10px] font-mono text-[10px] uppercase tracking-[0.18em] transition-all duration-150',
+                'focus-visible:ring-1 focus-visible:ring-sky-400/60',
+                state.view === m
+                  ? 'bg-sky-500/[0.16] text-sky-200 ring-1 ring-sky-400/25'
+                  : 'text-muted-foreground/60 hover:bg-white/[0.05] hover:text-foreground active:scale-[0.96]'
+              )}
+            >
+              {m}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* scenario simulation section */}
       <div className="mt-2 flex flex-col items-center gap-1.5 border-t border-white/[0.06] pt-2">
         <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-muted-foreground/50">
