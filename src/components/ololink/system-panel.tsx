@@ -15,7 +15,7 @@ import {
 import { LAYER } from '@/lib/layers';
 import type { OloLinkState, RailId } from '@/hooks/use-ololink';
 import { SYSTEM_TABS } from './system-rail';
-import { ViewSwitch } from './view-switch';
+
 
 const HEALTH_TONE: Record<Asset['health'], string> = {
   NOMINAL: 'text-emerald-300',
