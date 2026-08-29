@@ -12,7 +12,6 @@ import {
   type Asset,
   type AssetKind,
 } from '@/lib/ololink';
-import { LAYER } from '@/lib/layers';
 import type { OloLinkState, RailId } from '@/hooks/use-ololink';
 import { SYSTEM_TABS } from './system-rail';
 
@@ -29,19 +28,6 @@ const TAB_KIND: Partial<Record<RailId, AssetKind>> = {
   drone: 'drone',
   ground: 'ground',
 };
-
-function Stat({ label, value, tone }: { label: string; value: string; tone?: string | undefined }) {
-  return (
-    <div className="rounded-[8px] border border-white/[0.06] bg-white/[0.02] px-2.5 py-2">
-      <div className="font-mono text-[8px] uppercase tracking-[0.22em] text-muted-foreground/50">
-        {label}
-      </div>
-      <div className={cn('mt-1 font-mono text-[12px] tabular-nums text-foreground', tone)}>
-        {value}
-      </div>
-    </div>
-  );
-}
 
 function AssetRow({ asset, state }: { asset: Asset; state: OloLinkState }) {
   const links = state.links.filter(
@@ -100,23 +86,8 @@ function KindBody({ state, kind }: { state: OloLinkState; kind: AssetKind }) {
     );
   }, [all, q]);
 
-  const nominal = all.filter((a) => a.health === 'NOMINAL').length;
-  const degraded = all.filter((a) => a.health === 'DEGRADED').length;
-  const offline = all.filter((a) => a.health === 'OFFLINE').length;
-
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-2 gap-2">
-        <Stat label="Total" value={String(all.length)} />
-        <Stat label="Altitude band" value={LAYER[kind].altitude} />
-        <Stat label="Nominal" value={String(nominal)} tone="text-emerald-300" />
-        <Stat
-          label="Degraded / offline"
-          value={`${degraded} / ${offline}`}
-          tone={degraded + offline ? 'text-amber-300' : undefined}
-        />
-      </div>
-
       <label className="flex items-center gap-2 rounded-[9px] border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5">
         <SearchIcon className="h-3.5 w-3.5 text-muted-foreground/60" />
         <input
