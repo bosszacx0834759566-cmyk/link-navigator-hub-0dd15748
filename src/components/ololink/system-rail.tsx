@@ -155,9 +155,6 @@ export function SystemRail({ state }: { state: OloLinkState }) {
 
       {/* earth view mode */}
       <div className="mt-2 flex flex-col items-center gap-1 border-t border-white/[0.06] pt-2">
-        <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-muted-foreground/50">
-          View
-        </span>
         <div className="flex flex-col items-center gap-1">
           {(['3d', '2d'] as const).map((m) => (
             <button
