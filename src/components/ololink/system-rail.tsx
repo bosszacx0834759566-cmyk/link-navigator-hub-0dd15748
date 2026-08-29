@@ -157,24 +157,33 @@ export function SystemRail({ state }: { state: OloLinkState }) {
       {/* earth view mode */}
       <div className="mt-2 flex flex-col items-center gap-1 border-t border-white/[0.06] pt-2">
         <div className="flex flex-col items-center gap-1">
-          {(['3d', '2d'] as const).map((m) => (
-            <button
-              key={m}
-              type="button"
-              onClick={() => state.setView(m)}
-              aria-pressed={state.view === m}
-              aria-label={`${m.toUpperCase()} view`}
-              className={cn(
-                'flex h-8 w-[46px] items-center justify-center rounded-[10px] font-mono text-[10px] uppercase tracking-[0.18em] transition-all duration-150',
-                'focus-visible:ring-1 focus-visible:ring-sky-400/60',
-                state.view === m
-                  ? 'bg-sky-500/[0.16] text-sky-200 ring-1 ring-sky-400/25'
-                  : 'text-muted-foreground/60 hover:bg-white/[0.05] hover:text-foreground active:scale-[0.96]'
-              )}
-            >
-              {m}
-            </button>
-          ))}
+          {(
+            [
+              { id: '3d', icon: Box, label: '3D view' },
+              { id: '2d', icon: Map, label: '2D view' },
+            ] as const
+          ).map((m) => {
+            const Icon = m.icon;
+            const active = state.view === m.id;
+            return (
+              <button
+                key={m.id}
+                type="button"
+                onClick={() => state.setView(m.id)}
+                aria-pressed={active}
+                aria-label={m.label}
+                className={cn(
+                  'flex h-[46px] w-[46px] items-center justify-center rounded-[10px] transition-all duration-150',
+                  'focus-visible:ring-1 focus-visible:ring-sky-400/60',
+                  active
+                    ? 'bg-sky-500/[0.16] text-sky-200 ring-1 ring-sky-400/25'
+                    : 'text-muted-foreground/60 hover:bg-white/[0.05] hover:text-foreground active:scale-[0.96]'
+                )}
+              >
+                <Icon className="h-[18px] w-[18px]" strokeWidth={1.5} />
+              </button>
+            );
+          })}
         </div>
       </div>
 
