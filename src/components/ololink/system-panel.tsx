@@ -2,19 +2,15 @@
 
 import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, Search as SearchIcon, Crosshair } from 'lucide-react';
+import { X, Search as SearchIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import {
   ASSETS,
   ASSET_BY_ID,
   KIND_META,
-  SCENARIO_ORDER,
-  SCENARIOS,
-  TECH_META,
   type Asset,
   type AssetKind,
-  type Tech,
 } from '@/lib/ololink';
 import { LAYER } from '@/lib/layers';
 import type { OloLinkState, RailId } from '@/hooks/use-ololink';
@@ -301,61 +297,7 @@ function SettingsBody({ state }: { state: OloLinkState }) {
         ))}
       </div>
 
-      <div className="space-y-1.5">
-        <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50">
-          Transport technologies
-        </div>
-        {(Object.keys(TECH_META) as Tech[]).map((t) => (
-          <Toggle
-            key={t}
-            label={TECH_META[t].label}
-            checked={state.techFilter[t]}
-            onChange={() => state.toggleTech(t)}
-          />
-        ))}
-      </div>
-
-      <div className="space-y-1.5">
-        <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50">
-          Weather scenario
-        </div>
-        <div className="flex flex-wrap gap-1">
-          {SCENARIO_ORDER.map((id) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => state.setScenario(id)}
-              className={cn(
-                'rounded-full px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] transition-colors',
-                state.scenarioId === id
-                  ? 'bg-sky-500/[0.16] text-sky-200 ring-1 ring-sky-400/25'
-                  : 'text-muted-foreground/60 hover:bg-white/[0.05] hover:text-foreground'
-              )}
-            >
-              {SCENARIOS[id].name}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="space-y-1.5">
-        <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50">
-          Session
-        </div>
-        <div className="grid grid-cols-2 gap-2">
-          <Stat label="Assets" value={String(ASSETS.length)} />
-          <Stat label="Links" value={String(state.links.length)} />
-          <Stat label="Events" value={String(state.events.length)} />
-          <Stat label="Reroutes" value={String(state.rerouteSeq)} />
-        </div>
-        <button
-          type="button"
-          onClick={() => state.select(null)}
-          className="flex w-full items-center justify-center gap-2 rounded-[8px] border border-white/[0.08] px-2.5 py-2 text-[10px] uppercase tracking-[0.14em] text-muted-foreground/75 transition-colors hover:bg-white/[0.05] hover:text-foreground"
-        >
-          <Crosshair className="h-3 w-3" /> Clear selection
-        </button>
-      </div>
+    
     </div>
   );
 }
