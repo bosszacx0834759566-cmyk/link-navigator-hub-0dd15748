@@ -12,7 +12,6 @@ import {
   type Asset,
   type AssetKind,
 } from '@/lib/ololink';
-import { LAYER } from '@/lib/layers';
 import type { OloLinkState, RailId } from '@/hooks/use-ololink';
 import { SYSTEM_TABS } from './system-rail';
 
