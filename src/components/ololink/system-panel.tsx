@@ -87,23 +87,8 @@ function KindBody({ state, kind }: { state: OloLinkState; kind: AssetKind }) {
     );
   }, [all, q]);
 
-  const nominal = all.filter((a) => a.health === 'NOMINAL').length;
-  const degraded = all.filter((a) => a.health === 'DEGRADED').length;
-  const offline = all.filter((a) => a.health === 'OFFLINE').length;
-
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-2 gap-2">
-        <Stat label="Total" value={String(all.length)} />
-        <Stat label="Altitude band" value={LAYER[kind].altitude} />
-        <Stat label="Nominal" value={String(nominal)} tone="text-emerald-300" />
-        <Stat
-          label="Degraded / offline"
-          value={`${degraded} / ${offline}`}
-          tone={degraded + offline ? 'text-amber-300' : undefined}
-        />
-      </div>
-
       <label className="flex items-center gap-2 rounded-[9px] border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5">
         <SearchIcon className="h-3.5 w-3.5 text-muted-foreground/60" />
         <input
