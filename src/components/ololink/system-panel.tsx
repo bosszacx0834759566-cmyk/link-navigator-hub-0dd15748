@@ -30,19 +30,6 @@ const TAB_KIND: Partial<Record<RailId, AssetKind>> = {
   ground: 'ground',
 };
 
-function Stat({ label, value, tone }: { label: string; value: string; tone?: string | undefined }) {
-  return (
-    <div className="rounded-[8px] border border-white/[0.06] bg-white/[0.02] px-2.5 py-2">
-      <div className="font-mono text-[8px] uppercase tracking-[0.22em] text-muted-foreground/50">
-        {label}
-      </div>
-      <div className={cn('mt-1 font-mono text-[12px] tabular-nums text-foreground', tone)}>
-        {value}
-      </div>
-    </div>
-  );
-}
-
 function AssetRow({ asset, state }: { asset: Asset; state: OloLinkState }) {
   const links = state.links.filter(
     (l) => l.segment.from === asset.id || l.segment.to === asset.id
