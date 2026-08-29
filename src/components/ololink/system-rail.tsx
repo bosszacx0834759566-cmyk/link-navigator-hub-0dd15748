@@ -76,9 +76,6 @@ function RailButton({
 
       <span className="pointer-events-none absolute left-[64px] z-50 hidden -translate-x-1 whitespace-nowrap rounded-md border border-white/[0.08] bg-[#0a0f1c]/95 px-2.5 py-1.5 opacity-0 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.9)] backdrop-blur-xl transition-all duration-150 group-hover:translate-x-0 group-hover:opacity-100 md:block">
         <span className="block text-[10px] uppercase tracking-[0.2em] text-foreground">
-          Tab {index + 1} · {item.label}
-        </span>
-        <span className="mt-0.5 block text-[9px] tracking-wide text-muted-foreground/70">
           {item.hint}
         </span>
       </span>
