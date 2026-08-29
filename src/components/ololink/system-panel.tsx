@@ -309,8 +309,6 @@ export function SystemPanel({ state }: { state: OloLinkState }) {
               <KindBody state={state} kind={kind} />
             ) : id === 'search' ? (
               <SearchBody state={state} />
-            ) : id === 'view' ? (
-              <ViewBody state={state} />
             ) : (
               <SettingsBody state={state} />
             )}
