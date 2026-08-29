@@ -261,7 +261,7 @@ export function SystemPanel({ state }: { state: OloLinkState }) {
           <header className="flex items-start justify-between gap-3 border-b border-white/[0.06] px-5 py-3.5">
             <div>
               <h2 className="text-[11px] font-semibold uppercase tracking-[0.26em] text-foreground">
-                Tab {index + 1} · {kind ? KIND_META[kind].plural : meta.label}
+                {kind ? KIND_META[kind].plural : meta.label}
               </h2>
               <p className="mt-1 text-[10px] tracking-wide text-muted-foreground/60">{meta.hint}</p>
             </div>
