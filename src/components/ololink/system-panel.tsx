@@ -15,7 +15,7 @@ import {
 import { LAYER } from '@/lib/layers';
 import type { OloLinkState, RailId } from '@/hooks/use-ololink';
 import { SYSTEM_TABS } from './system-rail';
-import { ViewSwitch } from './view-switch';
+
 
 const HEALTH_TONE: Record<Asset['health'], string> = {
   NOMINAL: 'text-emerald-300',
@@ -204,41 +204,8 @@ function SearchBody({ state }: { state: OloLinkState }) {
   );
 }
 
-function ViewBody({ state }: { state: OloLinkState }) {
-  return (
-    <div className="space-y-4">
-      <div>
-        <div className="mb-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50">
-          Earth view
-        </div>
-        <ViewSwitch view={state.view} onChange={state.setView} />
-        <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground/60">
-          {state.view === '3d'
-            ? 'มุมมองโลกแบบ 3D — วงโคจร ชั้นระดับความสูง และลิงก์แบบสามมิติ'
-            : 'มุมมองแผนที่แบบ 2D — เส้นทางการสื่อสารและตำแหน่งอุปกรณ์บนแผนที่'}
-        </p>
-      </div>
 
-      <div className="space-y-1.5">
-        <div className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground/50">
-          Altitude stack
-        </div>
-        {(['satellite', 'haps', 'drone', 'ground'] as AssetKind[]).map((k) => (
-          <div
-            key={k}
-            className="flex items-center justify-between rounded-[8px] border border-white/[0.06] bg-white/[0.02] px-2.5 py-1.5"
-          >
-            <span className="flex items-center gap-2 text-[10px] text-foreground/85">
-              <span className="h-1.5 w-1.5 rounded-full" style={{ background: LAYER[k].color }} />
-              {LAYER[k].label}
-            </span>
-            <span className="font-mono text-[9px] text-muted-foreground/60">{LAYER[k].altitude}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+
 
 function Toggle({
   label,
@@ -342,8 +309,6 @@ export function SystemPanel({ state }: { state: OloLinkState }) {
               <KindBody state={state} kind={kind} />
             ) : id === 'search' ? (
               <SearchBody state={state} />
-            ) : id === 'view' ? (
-              <ViewBody state={state} />
             ) : (
               <SettingsBody state={state} />
             )}
