@@ -6,7 +6,7 @@ import {
   Plane,
   RadioTower,
   Search,
-  Globe2,
+  
   Settings2,
   Sun,
   Cloud,
