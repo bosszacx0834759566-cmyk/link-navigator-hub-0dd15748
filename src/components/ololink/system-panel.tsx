@@ -2,19 +2,15 @@
 
 import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, Search as SearchIcon, Crosshair } from 'lucide-react';
+import { X, Search as SearchIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import {
   ASSETS,
   ASSET_BY_ID,
   KIND_META,
-  SCENARIO_ORDER,
-  SCENARIOS,
-  TECH_META,
   type Asset,
   type AssetKind,
-  type Tech,
 } from '@/lib/ololink';
 import { LAYER } from '@/lib/layers';
 import type { OloLinkState, RailId } from '@/hooks/use-ololink';
