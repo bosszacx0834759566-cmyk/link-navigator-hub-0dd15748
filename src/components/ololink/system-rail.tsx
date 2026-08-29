@@ -189,9 +189,6 @@ export function SystemRail({ state }: { state: OloLinkState }) {
 
       {/* scenario simulation section */}
       <div className="mt-2 flex flex-col items-center gap-1.5 border-t border-white/[0.06] pt-2">
-        <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-muted-foreground/50">
-          WX
-        </span>
         {SCENARIOS_RAIL.map((item) => (
           <ScenarioRailButton
             key={item.id}
