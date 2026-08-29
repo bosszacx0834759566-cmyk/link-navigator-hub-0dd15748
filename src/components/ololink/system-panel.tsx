@@ -245,7 +245,6 @@ export function SystemPanel({ state }: { state: OloLinkState }) {
   const id = state.panel;
   const meta = SYSTEM_TABS.find((t) => t.id === id);
   const kind = id ? TAB_KIND[id] : undefined;
-  const index = SYSTEM_TABS.findIndex((t) => t.id === id);
 
   return (
     <AnimatePresence>
