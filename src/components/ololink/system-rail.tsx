@@ -43,12 +43,10 @@ export const SYSTEM_TABS: {
 
 function RailButton({
   item,
-  index,
   isActive,
   onToggle,
 }: {
   item: (typeof SYSTEM_TABS)[number];
-  index: number;
   isActive: boolean;
   onToggle: () => void;
 }) {
