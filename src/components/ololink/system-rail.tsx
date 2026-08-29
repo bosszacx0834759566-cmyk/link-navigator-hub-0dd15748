@@ -6,8 +6,9 @@ import {
   Plane,
   RadioTower,
   Search,
-  
   Settings2,
+  Box,
+  Map,
   Sun,
   Cloud,
   CloudRain,
